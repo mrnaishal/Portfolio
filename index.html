@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="I'm Naishal Nehal Shah, and this is my personal portfolio website.." />
+  <meta name="keywords" content="Naishal, Naishal Nehal Shah, Naishal">
+
+  <!--==================== UNICONS ====================-->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+  <!--==================== SWIPER CSS ====================-->
+  <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css" />
+
+  <!--==================== CSS ====================-->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <title>Naishal Nehal Shah</title>
+
+  <!--==================== Favicon ====================-->
+  <link rel="shortcut icon" href="/assets/img/favicon_edited.png" type="image/png">
+
+  <!--==================== Animate on scroll CDN ====================-->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <style>
+    /* CSS for the skill progress bars in the technical skills section */
+    .skills__bar {
+      background-color: #e0e0e0;
+      width: 100%;
+      height: 5px;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    .skills__percentage {
+      display: block;
+      height: 100%;
+      background-color: #3498db;
+      border-radius: 5px;
+    }
+
+    /* Fix for company logos */
+    .experience__logo {
+      max-width: 110px;
+      width: 100%;
+      height: auto;
+      margin: 0.5rem 0;
+    }
+
+    /* Style adjustments for custom arrow symbols in projects */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .swiper-button-next::after {
+      content: ">";
+    }
+    .swiper-button-prev::after {
+      content: "<";
+    }
+
+    /* Reduce spacing between Email, Phone, and GitHub in the contact section */
+    .contact__information > div {
+      margin-bottom: 0.5rem; /* Adjust as needed */
+    }
+  </style>
+</head>
+
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">Naishal Shah</a>
+      <div data-aos="fade-in" class="nav__menu" id="nav-menu">
+        <ul class="nav__list grid">
+          <li class="nav__items">
+            <a href="#home" class="nav__link active-link">
+              <i class="uil uil-estate nav__icon"></i> Home
+            </a>
+          </li>
+          <li class="nav__items">
+            <a href="#about" class="nav__link ">
+              <i class="uil uil-user nav__icon"></i> About
+            </a>
+          </li>
+          <li class="nav__items">
+            <a href="#skills" class="nav__link ">
+              <i class="uil uil-file nav__icon"></i> Skills
+            </a>
+          </li>
+          <li class="nav__items">
+            <a href="#services" class="nav__link ">
+              <i class="uil uil-briefcase-alt nav__icon"></i> Experience
+            </a>
+          </li>
+          <li class="nav__items">
+            <a href="#portfolio" class="nav__link ">
+              <i class="uil uil-scenery nav__icon"></i> Projects
+            </a>
+          </li>
+          <li class="nav__items">
+            <a href="#testimonial" class="nav__link ">
+              <i class="uil uil-scenery nav__icon"></i> Testimonials
+            </a>
+          </li>
+          <li class="nav__items">
+            <a href="#contact" class="nav__link ">
+              <i class="uil uil-message nav__icon"></i> Contact me
+            </a>
+          </li>
+        </ul>
+        <i class="uil uil-times nav__close" id="nav-close"></i>
+      </div>
+      <div class="nav__btns">
+        <!--Theme Change button-->
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="uil uil-apps"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+    <!--==================== HOME ====================-->
+    <section class="home section" id="home">
+      <div data-aos="fade-left" class="home__container container grid">
+        <div class="home__content grid">
+          <div class="home__social">
+            <a href="mailto:mrnaishal@gmail.com" target="_blank" class="home__social-icon">
+              <i class="uil uil-envelope-alt"></i>
+            </a>
+            <a href="https://github.com/mrnaishal" target="_blank" class="home__social-icon">
+              <i class="uil uil-github-alt"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/naishal-shah-94b005181/" target="_blank" class="home__social-icon">
+              <i class="uil uil-linkedin-alt"></i>
+            </a>
+            <!-- Phone number added -->
+            <a href="tel:+19309044950" target="_blank" class="home__social-icon">
+              <i class="uil uil-phone"></i>
+            </a>
+          </div>
+
+          <div data-aos="fade-right" class="home__img">
+            <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <mask id="mask0" mask-type="alpha">
+                <path
+                  d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+              </mask>
+              <g mask="url(#mask0)">
+                <path
+                  d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
+                <image class="home__blob-img" x="12" y="18" href="assets/img/naishal.png" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="home__data">
+            <h1 class="home_title">Hi!<span class="wave">👋</span>, I'm Naishal</h1>
+            <h3 class="home__subtitle">
+              and I'm <span class="auto-input"></span>
+            </h3>
+            <p class="home__description">
+              Data Scientist & Cloud Data Engineer with proven experience building data pipelines, ML models, and cloud solutions.
+            </p>
+            <a href="#contact" class="button button--flex">
+              Contact Me <i class="uil uil-message button__icon"></i>
+            </a>
+          </div>
+        </div>
+        <div class="home__scroll">
+          <a href="#about" class="home__scroll-button button--flex">
+            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+            <span class="home__scroll-name"> Scroll down</span>
+            <i class="uil uil-arrow-down home__scroll-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+      <h2 class="section__title">About Me</h2>
+      <span class="section__subtitle">My Introduction</span>
+      <div data-aos="fade-left" class="about__container container grid">
+        <img src="assets/img/about.jpg" alt="" class="about__img" />
+        <div class="about__data">
+          <p class="about__description">
+            Hey there! I'm Naishal Shah, a Data Scientist & Cloud Engineer with a passion for machine learning, sports analytics, and AI-driven solutions. With 4 years of experience working at Citibank N.A., VISA Inc., and CPP Investments, I’ve tackled complex ETL pipelines, fraud detection models, and high-risk account classification systems. Currently, I’m pursuing my Master’s in Data Science at Indiana University, diving deeper into Applied Machine Learning and Computer Vision.<br><br>
+            Beyond work, I love exploring AI applications in sports, especially in Fantasy Premier League analytics, where I use data-driven models to predict player performance. Whether it’s optimizing ML models or solving real-world data challenges, I’m always up for a deep dive into the numbers! 🚀
+          </p>
+          <div class="about_info">
+            <div>
+              <span class="about__info-title">4</span>
+              <span class="about__info-name">Years <br /> experience</span>
+            </div>
+            <div>
+              <span class="about__info-title">3</span>
+              <span class="about__info-name">Companies <br /> 6 Clients</span>
+            </div>
+            <div>
+              <span class="about__info-title">Yes</span>
+              <span class="about__info-name">Open<br /> for any Opportunity</span>
+            </div>
+          </div>
+          <div class="about__buttons">
+            <a download="" href="assets/pdf/Naishal MS Resume 10.pdf" class="button button--flex">
+              Download CV <i class="uil uil-download-alt button__icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== EDUCATION (without progress bars) ====================-->
+    <section class="skills section" id="skills">
+      <h2 class="section__title">EDUCATION</h2>
+      <span class="section__subtitle">My Education</span>
+      <div data-aos="fade-up" class="skills__container container grid">
+        <div>
+          <!-- EDUCATION 1 -->
+          <div class="skills__content skills__close">
+            <div class="skills__header">
+              <i class="uil uil-graduation-cap skills__icon"></i>
+              <div>
+                <h1 class="skills__title">VIT University, Vellore</h1>
+                <span class="skills__subtitle">BTech. in Computer Science Engineering</span><br />
+                <span class="skills__subtitle">2016 - 2020</span><br />
+                <span class="skills__subtitle">CGPA: 8.28 / 10.0</span>
+              </div>
+              <i class="uil uil-angle-down skills__arrow"></i>
+            </div>
+            <div class="skills__list grid">
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">DATA STRUCTURES & ALGORITHMS</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">DATABASE MANAGEMENT SYSTEM</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">OBJECT ORIENTED PROG. WITH C++</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">DESIGN & ANALYSIS OF ALGORITHM</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">SOFTWARE PROJECT</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">OPERATING SYSTEMS</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">IMAGE PROCESSING</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">CLOUD COMPUTING AND IOT</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- EDUCATION 2 -->
+          <div class="skills__content skills__close">
+            <div class="skills__header">
+              <i class="uil uil-graduation-cap skills__icon"></i>
+              <div>
+                <h1 class="skills__title">Indiana University Bloomington</h1>
+                <span class="skills__subtitle">MS in Data Science</span><br />
+                <span class="skills__subtitle">2024 - 2026</span><br />
+                <span class="skills__subtitle">GPA: 3.9 / 4.0</span>
+              </div>
+              <i class="uil uil-angle-down skills__arrow"></i>
+            </div>
+            <div class="skills__list grid">
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">Cloud Computing</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">Applied Machine Learning</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">Computer Vision</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">Introduction to Statistics</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">Usable AI</h3>
+                </div>
+              </div>
+              <div class="skills__data">
+                <div class="skills__titles">
+                  <h3 class="skills__name">Applied Database Technologies</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== SKILLS SECTION (with progress bars) ====================-->
+    <section class="skills section" id="skills">
+      <h2 class="section__title">Skills</h2>
+      <span class="section__subtitle">My technical level</span>
+      <div data-aos="fade-up" class="skills__container container grid">
+        <!-- Programming and Libraries -->
+        <div class="skills__content skills__close">
+          <div class="skills__header">
+            <i class="uil uil-brackets-curly skills__icon"></i>
+            <div>
+              <h1 class="skills__title">Programming and Libraries</h1>
+            </div>
+            <i class="uil uil-angle-down skills__arrow"></i>
+          </div>
+          <div class="skills__list grid">
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Python</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">SQL</h3>
+                <span class="skills__number">100%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:100%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">PL/SQL</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">R</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Java</h3>
+                <span class="skills__number">70%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Hive</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Cloud & Data Platforms -->
+        <div class="skills__content skills__close">
+          <div class="skills__header">
+            <i class="uil uil-cloud-network skills__icon"></i>
+            <div>
+              <h1 class="skills__title">Cloud & Data Platforms</h1>
+            </div>
+            <i class="uil uil-angle-down skills__arrow"></i>
+          </div>
+          <div class="skills__list grid">
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">AWS</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Azure Databricks</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Snowflake</h3>
+                <span class="skills__number">70%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Hadoop</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Apache Spark</h3>
+                <span class="skills__number">100%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:100%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">MySQL</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Oracle</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Data Visualization Tools -->
+        <div class="skills__content skills__close">
+          <div class="skills__header">
+            <i class="uil uil-chart-line skills__icon"></i>
+            <div>
+              <h1 class="skills__title">Data Visualization Tools</h1>
+            </div>
+            <i class="uil uil-angle-down skills__arrow"></i>
+          </div>
+          <div class="skills__list grid">
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Tableau</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Power BI</h3>
+                <span class="skills__number">70%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">MS Excel</h3>
+                <span class="skills__number">100%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:100%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Amazon Quicksight</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ML Algorithms & Libraries -->
+        <div class="skills__content skills__close">
+          <div class="skills__header">
+            <i class="uil uil-brain skills__icon"></i>
+            <div>
+              <h1 class="skills__title">ML Algorithms & Libraries</h1>
+            </div>
+            <i class="uil uil-angle-down skills__arrow"></i>
+          </div>
+          <div class="skills__list grid">
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Clustering</h3>
+                <span class="skills__number">100%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:100%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Regression</h3>
+                <span class="skills__number">100%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:100%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Deep Learning</h3>
+                <span class="skills__number">70%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Computer Vision</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Scikit-Learn</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">TensorFlow</h3>
+                <span class="skills__number">60%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:60%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">PyTorch</h3>
+                <span class="skills__number">70%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Matplotlib</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Workflow Automation -->
+        <div class="skills__content skills__close">
+          <div class="skills__header">
+            <i class="uil uil-sync skills__icon"></i>
+            <div>
+              <h1 class="skills__title">Workflow Automation</h1>
+            </div>
+            <i class="uil uil-angle-down skills__arrow"></i>
+          </div>
+          <div class="skills__list grid">
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Airflow</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Git</h3>
+                <span class="skills__number">70%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">CI/CD</h3>
+                <span class="skills__number">80%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:80%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">Jenkins</h3>
+                <span class="skills__number">60%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:60%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">RLM</h3>
+                <span class="skills__number">60%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:60%"></span>
+              </div>
+            </div>
+            <div class="skills__data">
+              <div class="skills__titles">
+                <h3 class="skills__name">BitBucket</h3>
+                <span class="skills__number">90%</span>
+              </div>
+              <div class="skills__bar">
+                <span class="skills__percentage" style="width:90%"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== SERVICES / EXPERIENCE ====================-->
+    <section class="services section" id="services">
+      <h2 class="section__title">Industry Experience</h2>
+      <span class="section__subtitle">that I have</span>
+      <div data-aos="fade-right" class="services__container container grid">
+        <!-- Experience 1 -->
+        <div class="services__content">
+          <div>
+            <i class="uil uil-web-grid services__icon"></i>
+            <!-- Company logo for Citibank -->
+            <img src="assets/img/Citi.png" alt="Citibank Logo" class="experience__logo">
+            <h3 class="services__title">Data Engineer <br> @ Citibank N.A.</h3>
+          </div>
+          <span class="button button--flex button--small button--link services__button">
+            View More
+            <i class="uil uil-arrow-right button__icon"></i>
+          </span>
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <h4 class="services__modal-title">Data Engineer <br> @ Citibank N.A.</h4>
+              <i class="uil uil-times services__modal-close"></i>
+              <ul class="services__modal-services grid">
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Migrated the Compliance Data Warehouse framework from legacy systems to EAP servers for banking and financial data pipelines across 15 LATAM countries, reducing data retrieval time by more than half and improving system scalability to support 3x data growth.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Worked with clients to understand requirements, turning them into appropriate data models and mapping documents for transactional data pipeline – Cash, Wire and MI Transactions.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Led a team of two in developing a data pipeline to implement the ISO20022 standard for the SWIFT message format transition.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Implemented an alert system using Scenario Modeling to classify High-Risk Accounts (HRAC) for NAM, LATAM, and MX regions, reducing false positives by 18% and enhancing the accuracy of high-risk account identification by 25%.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Experience 2 -->
+        <div class="services__content">
+          <div>
+            <i class="uil uil-arrow services__icon"></i>
+            <!-- Company logo for TresVista -->
+            <img src="assets/img/TV.jpeg" alt="TresVista Logo" class="experience__logo">
+            <h3 class="services__title">Associate Data Engineer <br> @ TresVista Analytics</h3>
+          </div>
+          <span class="button button--flex button--small button--link services__button">
+            View More
+            <i class="uil uil-arrow-right button__icon"></i>
+          </span>
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <h4 class="services__modal-title">Associate Data Engineer <br> @ TresVista Analytics</h4>
+              <i class="uil uil-times services__modal-close"></i>
+              <ul class="services__modal-services grid">
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Developed and oversaw over 20 ETL pipelines for multiple vendors using Apache Airflow, Databricks, PySpark, and Python, ensuring streamlined data processing and reducing data latency by 40%, resulting in a 15% increase in reporting efficiency.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Utilized AWS SQS and SNS services to streamline data ingestion from vendor buckets and APIs into client S3 buckets, reducing ingestion time by 60%.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Performed data quality checks, built Tableau dashboards, and mentored junior analysts to ensure project success and team proficiency.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- Experience 3 -->
+        <div class="services__content">
+          <div>
+            <i class="uil uil-database services__icon"></i>
+            <!-- Company logo for Visa -->
+            <img src="assets/img/Visa.png" alt="Visa Logo" class="experience__logo">
+            <h3 class="services__title">Data Engineer II <br> @ Visa Inc.</h3>
+          </div>
+          <span class="button button--flex button--small button--link services__button">
+            View More
+            <i class="uil uil-arrow-right button__icon"></i>
+          </span>
+          <div class="services__modal">
+            <div class="services__modal-content">
+              <h4 class="services__modal-title">Data Engineer II <br> @ Visa Inc.</h4>
+              <i class="uil uil-times services__modal-close"></i>
+              <ul class="services__modal-services grid">
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Designed and managed Issuer Processor and Acquirer Processor monthly risk reports for the regions – USA, Canada, Cemea – and created client-friendly dashboards using Tableau managing over Tableau Server.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Performed ETL operations on Fraud and Settlement transaction data using Hive and PySpark, streamlining data flow and enabling the generation of critical downstream reports 25% faster.</p>
+                </li>
+                <li class="services__modal-service">
+                  <i class="uil uil-check-circle services__modal-icon"></i>
+                  <p>Created Airflow code in Python to streamline the data loading process and initiate the ETL operations for Canada and Cemea regions.</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== PROJECTS ====================-->
+    <section class="portfolio section" id="portfolio">
+      <h2 class="section__title">Projects</h2>
+      <span class="section__subtitle">Most recent work</span>
+      <!-- 
+        IMPORTANT: 
+        The 'swiper-container' requires JS initialization to display one slide at a time. 
+        We'll do that below in the <script> after the HTML.
+      -->
+      <div data-aos="fade-right" class="portfolio__container container swiper-container" data-slides-per-view="1">
+        <div class="swiper-wrapper">
+          <!-- Project 1 -->
+          <div class="portfolio__content grid swiper-slide">
+            <div class="portfolio__data project__data">
+              <h3 class="portfolio__title">Fantasy Premier League Optimization</h3>
+              <h5>Python, Jupyter, Random Forest, XGBoost, Reinforcement Learning</h5>
+              <p class="portfolio__description">1. Developed a machine learning system for Fantasy Premier League decision-making using Random Forest, Gradient Boosting, and Reinforcement Learning, achieving 83.87% accuracy in captaincy selection, fixture difficulty ratings, and team optimization.</p>
+              <p class="portfolio__description">2. Leveraged advanced feature engineering and real-time data analysis to deliver actionable insights, demonstrating expertise in data preprocessing, model evaluation, and result visualization for sports analytics.</p>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="portfolio__content grid swiper-slide">
+            <div class="portfolio__data project__data">
+              <h3 class="portfolio__title">Detection of Phishing Websites</h3>
+              <h5>Python, Anaconda Jupyter, HTML, CSS, ML algorithms</h5>
+              <p class="portfolio__description">1. Led a team of three in developing a GUI-based phishing detection web application, enabling users to paste any URL and select from four established algorithms (KNN, Logistic Regression, Random Forest, Naïve Bayes) or utilize a custom algorithm to determine if a site is malicious.</p>
+              <p class="portfolio__description">2. The novel algorithm reduced time complexity by 90% compared to the fastest existing algorithm (Logistic Regression) while maintaining 95% accuracy, comparable to the Random Forest model.</p>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div class="portfolio__content grid swiper-slide">
+            <div class="portfolio__data project__data">
+              <h3 class="portfolio__title">Brain Tumor Extraction and Detection</h3>
+              <h5>MATLAB, Python, SVM Kernal</h5>
+              <p class="portfolio__description">1. Proposed a strategy to detect, extract, and describe brain tumors from scanned MRI images using segmentation and morphological operations, followed by an SVM Kernal ML algorithm to detect tumor locations, achieving 99.82% accuracy.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add Arrows using custom symbols -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!--==================== CERTIFICATES (Moved before testimonials) ====================-->
+    <section class="certificate section">
+      <h2 class="section__title">My Certificates</h2>
+      <span class="section__subtitle">By HackerRank</span>
+      <span class="section__subtitle">Scroll or slide here to see next>>></span>
+      <div data-aos="fade-up" class="portfolio__container container swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Certificate 1 -->
+          <div class="portfolio__content grid swiper-slide">
+            <!-- <img src="assets/img/cca175_cert.png" alt="CCA 175 Certificate" class="portfolio__img"> -->
+            <div class="portfolio__data">
+              <p>CCA 175 (Cloudera Certified Hadoop and Spark Engineer)</p>
+            </div>
+          </div>
+          <!-- Certificate 2 -->
+          <div class="portfolio__content grid swiper-slide">
+            <!-- <img src="assets/img/aws_cp_cert.png" alt="AWS Cloud Practitioner Certificate" class="portfolio__img"> -->
+            <div class="portfolio__data">
+              <p>AWS Cloud Practitioner (LTI Shoshin-School)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==================== TESTIMONIAL ====================-->
+    <section class="testimonial section" id="testimonial">
+      <h2 class="section__title">Testimonial</h2>
+      <span class="section__subtitle">My Ex-collegues saying</span>
+      <span class="section__subtitle swiper-error">Slide here to see next>>></span>
+      <div data-aos="fade-in" class="testimonial__container container swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Testimonial 1 -->
+          <div class="testimonial__content swiper-slide">
+            <div class="testimonial__data">
+              <div class="testimonial__header">
+                <img src="/assets/img/user.webp" alt="" class="testimonial__img">
+                <div>
+                  <h3 class="testimonial__name">Bhargav Nariyani</h3>
+                  <span class="testimonial__client">Technical Lead @ Crest Data</span>
+                </div>
+              </div>
+            </div>
+            <p class="testimonial__description">
+              Naishal Shah started at Crest as an Intern and during my time working with him, I found Naishal curious, 
+              eager to learn, quick learner, dedicated, hardworking individual who has been keen to take up the challenge assigned to him and deliver to the best of his abilities. I am confident on Naishal to deliver his best to any team he works on with in future and any team would surely be lucky to have him onboarded.
+            </p>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-testimonial"></div>
+      </div>
+    </section>
+
+    <!--==================== CONTACT ME ====================-->
+    <section class="contact section" id="contact">
+      <h2 class="section__title">Contact Me</h2>
+      <span class="section__subtitle">Get in touch</span>
+      <div data-aos="fade-in" class="contact__container container grid">
+        <div>
+          <div class="contact__information">
+            <!-- Updated to include Email, then Phone, then Github with less spacing -->
+            <div class="contact__1">
+              <i class="uil uil-envelope contact__icon"></i>
+              <div>
+                <h3 class="contact__title">Email</h3>
+                <span class="contact__subtitle">mrnaishal@gmail.com</span>
+              </div>
+            </div>
+            <div class="contact__2">
+              <i class="uil uil-phone contact__icon"></i>
+              <div>
+                <h3 class="contact__title">Phone</h3>
+                <span class="contact__subtitle">+1(930)-904-4950</span>
+              </div>
+            </div>
+            <div class="contact__3">
+              <i class="uil uil-github-alt contact__icon"></i>
+              <div>
+                <h3 class="contact__title">Github</h3>
+                <span class="contact__subtitle">https://github.com/mrnaishal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="footer__bg">
+      <div class="footer__container container grid">
+        <div>
+          <h1 class="footer__title">Naishal Nehal Shah</h1>
+          <span class="footer__subtitle">Data Science Engineer</span>
+        </div>
+        <ul class="footer__links">
+          <li>
+            <a href="#services" class="footer__link">Experience</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="footer__link">Projects</a>
+          </li>
+          <li>
+            <a href="#contact" class="footer__link">Contact Me</a>
+          </li>
+        </ul>
+        <div class="footer__socials">
+          <a href="mailto:mrnaishal@gmail.com" target="_blank" class="footer__social">
+            <i class="uil uil-envelope-alt"></i>
+          </a>
+          <a href="https://github.com/mrnaishal" target="_blank" class="footer__social">
+            <i class="uil uil-github-alt"></i>
+          </a>
+          <a href="https://x.com/NaishalShah5" target="_blank" class="footer__social">
+            <i class="uil uil-twitter-alt"></i>
+          </a>
+          <a href="tel:+19309044950" target="_blank" class="footer__social">
+            <i class="uil uil-phone"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--==================== SCROLL TOP ====================-->
+  <div>
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+  </div>
+
+  <!--==================== SWIPER JS ====================-->
+  <script src="/assets/js/swiper-bundle.min.js"></script>
+
+  <!--==================== MAIN JS ====================-->
+  <script src="assets/js/main.js"></script>
+
+  <!--=================== Animated text ===============-->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed(".auto-input", {
+      strings: [
+        "a Data Scientist & Cloud Engineer",
+        "an ML Enthusiast",
+        "a lifelong learner",
+      ],
+      typeSpeed: 100,
+      backSpeed: 100,
+      loop: true,
+    });
+  </script>
+
+  <!--=================== Animate scroll js ===============-->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 300,
+      duration: 2000
+    });
+  </script>
+
+  <!--==================== SWIPER INITIALIZATION ====================-->
+  <script>
+    /* Initialize Swiper for Projects */
+    var swiperPortfolio = new Swiper(".portfolio__container", {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      slidesPerView: 1,
+      spaceBetween: 30,
+    });
+
+    /* Initialize Swiper for Certificates (if you want them to slide as well) */
+    var swiperCertificates = new Swiper(".certificate .swiper-container", {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      slidesPerView: 1,
+      spaceBetween: 30,
+    });
+
+    /* Initialize Swiper for Testimonials (if you want them to slide as well) */
+    var swiperTestimonials = new Swiper(".testimonial .swiper-container", {
+      loop: true,
+      navigation: false, /* or add custom nav if needed */
+      pagination: {
+        el: ".swiper-pagination-testimonial",
+        clickable: true,
+      },
+      slidesPerView: 1,
+      spaceBetween: 30,
+    });
+  </script>
+
+</body>
+
+</html>
