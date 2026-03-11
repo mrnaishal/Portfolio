@@ -52,8 +52,25 @@
     #hero { min-height:100vh; display:flex; align-items:center; padding:100px 0 60px; }
     .hero-inner { display:grid; grid-template-columns:1fr auto; gap:4rem; align-items:center; }
     .hero-tag { font-family:var(--font-mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:.6rem; margin-bottom:1.2rem; flex-wrap:wrap; }
-    .hero-tag::before { content:''; display:inline-block; width:28px; height:1px; background:var(--accent); }
     .hero-tag .reloc { color:var(--muted); font-size:.62rem; letter-spacing:.1em; }
+    @keyframes pulse-ring {
+      0%   { transform:scale(1);   opacity:.7; }
+      70%  { transform:scale(2.4); opacity:0; }
+      100% { transform:scale(2.4); opacity:0; }
+    }
+    .status-dot {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:8px; height:8px; flex-shrink:0; position:relative;
+    }
+    .status-dot::before {
+      content:''; position:absolute;
+      width:8px; height:8px; border-radius:50%; background:#4ade80;
+      animation: pulse-ring 2s ease-out infinite;
+    }
+    .status-dot::after {
+      content:''; width:8px; height:8px; border-radius:50%;
+      background:#4ade80; position:relative; z-index:1;
+    }
     .hero-name { font-family:var(--font-display); font-size:clamp(4rem,10vw,9.5rem); letter-spacing:.03em; line-height:.92; color:var(--text); }
     .hero-name span { color:var(--accent); }
     .hero-role { font-size:1rem; color:var(--muted2); margin-top:1.4rem; max-width:500px; font-weight:300; line-height:1.75; }
@@ -64,7 +81,13 @@
     .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
     .hero-stats { display:flex; flex-direction:column; gap:1.6rem; padding:2rem; border:1px solid var(--border); border-radius:12px; background:var(--surface); min-width:175px; }
     .stat-item { text-align:center; }
-    .stat-num { font-family:var(--font-display); font-size:2.8rem; line-height:1; color:var(--accent); }
+    .stat-num { font-family:var(--font-display); font-size:2.8rem; line-height:1; color:var(--accent);
+      animation: statPop .5s cubic-bezier(.22,1,.36,1) both; }
+    @keyframes statPop { from{opacity:0;transform:scale(.7);} to{opacity:1;transform:none;} }
+    .stat-item:nth-child(1) .stat-num{animation-delay:.3s;}
+    .stat-item:nth-child(3) .stat-num{animation-delay:.45s;}
+    .stat-item:nth-child(5) .stat-num{animation-delay:.6s;}
+    .stat-item:nth-child(7) .stat-num{animation-delay:.75s;}
     .stat-label { font-family:var(--font-mono); font-size:.56rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:.3rem; }
     .stat-divider { width:100%; height:1px; background:var(--border); }
 
@@ -148,8 +171,8 @@
     .ticker-inner:hover { animation-play-state:paused; }
     .ticker-inner-rev { display:flex; gap:.75rem; width:max-content; animation:tick-rev 28s linear infinite; padding:4px 0; }
     .ticker-inner-rev:hover { animation-play-state:paused; }
-    @keyframes tick     { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    @keyframes tick-rev { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+    @keyframes tick     { from{transform:translateX(0)} to{transform:translateX(-33.333%)} }
+    @keyframes tick-rev { from{transform:translateX(-33.333%)} to{transform:translateX(0)} }
     .tech-chip { display:inline-flex; align-items:center; gap:.5rem; padding:.5rem 1rem; border:1px solid var(--border); border-radius:100px; background:var(--surface); font-family:var(--font-mono); font-size:.71rem; letter-spacing:.05em; color:var(--muted2); white-space:nowrap; transition:border-color .2s,color .2s; cursor:default; }
     .tech-chip:hover { border-color:var(--accent); color:var(--text); }
     .tech-chip .ti { font-size:.9rem; line-height:1; }
@@ -221,14 +244,12 @@
     footer p { font-family:var(--font-mono); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
     footer span { color:var(--accent); }
 
-    /* REVEAL — pure CSS, no JS dependency */
+    /* REVEAL — transform only, never opacity, so content is always visible */
     @keyframes fadeUp {
-      from { opacity:0; transform:translateY(24px); }
-      to   { opacity:1; transform:none; }
+      from { transform:translateY(20px); }
+      to   { transform:none; }
     }
-    .reveal {
-      animation: fadeUp .7s ease both;
-    }
+    .reveal { animation: fadeUp .6s ease both; }
     .reveal-delay-1 { animation-delay:.1s; }
     .reveal-delay-2 { animation-delay:.2s; }
     .reveal-delay-3 { animation-delay:.3s; }
@@ -277,6 +298,7 @@
     <div class="hero-inner">
       <div>
         <div class="hero-tag reveal">
+          <span class="status-dot"></span>
           Available for new opportunities
           <span class="reloc">· open to relocation</span>
         </div>
@@ -293,24 +315,24 @@
           <a href="https://github.com/mrnaishal" target="_blank" class="btn-outline">GitHub</a>
         </div>
       </div>
-      <div class="hero-stats reveal reveal-delay-2">
+      <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num" data-count="5">0</div>
+          <div class="stat-num">5+</div>
           <div class="stat-label">Years of<br/>Experience</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-num" data-count="10">0</div>
+          <div class="stat-num">10+</div>
           <div class="stat-label">Projects<br/>Built</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-num" data-count="5">0</div>
+          <div class="stat-num">5+</div>
           <div class="stat-label">Companies<br/>Worked</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-num" data-count="2">0</div>
+          <div class="stat-num">2+</div>
           <div class="stat-label">Certifications</div>
         </div>
       </div>
@@ -326,8 +348,7 @@
     <div class="about-grid">
       <div class="about-photo-wrap reveal reveal-delay-1">
         <div class="about-photo">
-          <div class="ph-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
-          <span class="ph-text">// your_photo.jpg</span>
+          <img src="Naishal_photo2.jpg" alt="Naishal Shah" style="width:100%;height:100%;object-fit:cover;border-radius:10px;" />
         </div>
       </div>
       <div class="about-text reveal reveal-delay-2">
@@ -343,7 +364,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.04-.01-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.005 2.04.138 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.21.69.82.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12"/></svg>
             GitHub
           </a>
-          <a href="/cdn-cgi/l/email-protection#0b6679656a6278636a674b6c666a626725686466" class="link-chip">
+          <a href="mailto:mrnaishal@gmail.com" class="link-chip">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Email
           </a>
@@ -432,7 +453,7 @@
 
       <a href="https://github.com/mrnaishal" target="_blank" class="github-all-btn reveal">
         <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.04-.01-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.005 2.04.138 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.21.69.82.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12"/></svg>
-        View all 10+ projects on GitHub →
+        View Other Projects on GitHub →
       </a>
 
     </div>
@@ -440,6 +461,20 @@
 </section>
 
 <!-- EXPERIENCE -->
+<script>
+function switchTab(el) {
+  var t = el;
+  while (t && !t.getAttribute('data-panel')) t = t.parentElement;
+  if (!t) return;
+  var tabs = document.querySelectorAll('.exp-tab');
+  var panels = document.querySelectorAll('.exp-panel');
+  for (var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+  for (var i=0;i<panels.length;i++) panels[i].classList.remove('active');
+  t.classList.add('active');
+  var p = document.getElementById('panel-'+t.getAttribute('data-panel'));
+  if (p) p.classList.add('active');
+}
+</script>
 <section id="experience">
   <div class="container">
     <div class="sec-label reveal">03 — Experience</div>
@@ -447,35 +482,35 @@
     <div class="exp-grid">
       <div class="exp-tabs reveal reveal-delay-1">
 
-        <div class="exp-tab active" data-panel="ghip">
+        <div class="exp-tab active" data-panel="ghip" onclick="switchTab(this)">
           <div class="exp-logo"><img src="logos/ghip.jpg" alt="Global Health Impact" style="width:24px;height:24px;object-fit:contain;border-radius:4px;" /></div>
           <div>
             <span class="tab-company">Global Health Impact</span>
             <span class="tab-period">Sep 2025 – Present</span>
           </div>
         </div>
-        <div class="exp-tab" data-panel="ccc">
+        <div class="exp-tab" data-panel="ccc" onclick="switchTab(this)">
           <div class="exp-logo"><img src="logos/ccc.jpg" alt="CCC Intelligent Solutions" style="width:24px;height:24px;object-fit:contain;border-radius:4px;" /></div>
           <div>
             <span class="tab-company">CCC Intelligent Solutions</span>
             <span class="tab-period">May – Aug 2025</span>
           </div>
         </div>
-        <div class="exp-tab" data-panel="exl">
+        <div class="exp-tab" data-panel="exl" onclick="switchTab(this)">
           <div class="exp-logo"><img src="logos/exl.jpg" alt="EXL" style="width:24px;height:24px;object-fit:contain;border-radius:4px;" /></div>
           <div>
             <span class="tab-company">EXL</span>
             <span class="tab-period">Feb – Aug 2024</span>
           </div>
         </div>
-        <div class="exp-tab" data-panel="tres">
+        <div class="exp-tab" data-panel="tres" onclick="switchTab(this)">
           <div class="exp-logo"><img src="logos/tresvista.jpg" alt="TresVista" style="width:24px;height:24px;object-fit:contain;border-radius:4px;" /></div>
           <div>
             <span class="tab-company">TresVista Analytics</span>
             <span class="tab-period">Oct 2023 – Feb 2024</span>
           </div>
         </div>
-        <div class="exp-tab" data-panel="lti">
+        <div class="exp-tab" data-panel="lti" onclick="switchTab(this)">
           <div class="exp-logo"><img src="logos/lti.jpg" alt="LTIMindtree" style="width:24px;height:24px;object-fit:contain;border-radius:4px;" /></div>
           <div>
             <span class="tab-company">LTIMindtree</span>
@@ -571,17 +606,35 @@
     </p>
   </div>
 
-  <div class="ticker-wrap reveal reveal-delay-2">
+  <div class="ticker-wrap">
     <div class="ticker-label">Languages & Core</div>
-    <div class="ticker-track"><div class="ticker-inner" id="t1"></div></div>
+    <div class="ticker-track">
+      <div class="ticker-inner">
+        <span class="tech-chip"><span class="ti">🐍</span>Python</span><span class="tech-chip"><span class="ti">🗄️</span>SQL</span><span class="tech-chip"><span class="ti">⚡</span>Scala</span><span class="tech-chip"><span class="ti">🐼</span>Pandas</span><span class="tech-chip"><span class="ti">🔢</span>NumPy</span><span class="tech-chip"><span class="ti">✨</span>PySpark</span><span class="tech-chip"><span class="ti">📊</span>Matplotlib</span><span class="tech-chip"><span class="ti">🐘</span>PostgreSQL</span><span class="tech-chip"><span class="ti">❄️</span>Snowflake</span><span class="tech-chip"><span class="ti">🗃️</span>Hive</span><span class="tech-chip"><span class="ti">📝</span>Jupyter</span><span class="tech-chip"><span class="ti">🔧</span>Git</span>
+        <span class="tech-chip"><span class="ti">🐍</span>Python</span><span class="tech-chip"><span class="ti">🗄️</span>SQL</span><span class="tech-chip"><span class="ti">⚡</span>Scala</span><span class="tech-chip"><span class="ti">🐼</span>Pandas</span><span class="tech-chip"><span class="ti">🔢</span>NumPy</span><span class="tech-chip"><span class="ti">✨</span>PySpark</span><span class="tech-chip"><span class="ti">📊</span>Matplotlib</span><span class="tech-chip"><span class="ti">🐘</span>PostgreSQL</span><span class="tech-chip"><span class="ti">❄️</span>Snowflake</span><span class="tech-chip"><span class="ti">🗃️</span>Hive</span><span class="tech-chip"><span class="ti">📝</span>Jupyter</span><span class="tech-chip"><span class="ti">🔧</span>Git</span>
+        <span class="tech-chip"><span class="ti">🐍</span>Python</span><span class="tech-chip"><span class="ti">🗄️</span>SQL</span><span class="tech-chip"><span class="ti">⚡</span>Scala</span><span class="tech-chip"><span class="ti">🐼</span>Pandas</span><span class="tech-chip"><span class="ti">🔢</span>NumPy</span><span class="tech-chip"><span class="ti">✨</span>PySpark</span><span class="tech-chip"><span class="ti">📊</span>Matplotlib</span><span class="tech-chip"><span class="ti">🐘</span>PostgreSQL</span><span class="tech-chip"><span class="ti">❄️</span>Snowflake</span><span class="tech-chip"><span class="ti">🗃️</span>Hive</span><span class="tech-chip"><span class="ti">📝</span>Jupyter</span><span class="tech-chip"><span class="ti">🔧</span>Git</span>
+      </div>
+    </div>
   </div>
-  <div class="ticker-wrap reveal reveal-delay-3" style="margin-top:1rem">
+  <div class="ticker-wrap" style="margin-top:1rem">
     <div class="ticker-label">ML / AI / Knowledge Graphs</div>
-    <div class="ticker-track"><div class="ticker-inner-rev" id="t2"></div></div>
+    <div class="ticker-track">
+      <div class="ticker-inner-rev">
+        <span class="tech-chip"><span class="ti">🤖</span>LangChain</span><span class="tech-chip"><span class="ti">🧠</span>PyTorch</span><span class="tech-chip"><span class="ti">🌊</span>TensorFlow</span><span class="tech-chip"><span class="ti">🚀</span>XGBoost</span><span class="tech-chip"><span class="ti">🔬</span>Scikit-learn</span><span class="tech-chip"><span class="ti">👁️</span>OpenCV</span><span class="tech-chip"><span class="ti">🔗</span>HuggingFace</span><span class="tech-chip"><span class="ti">📡</span>RAG</span><span class="tech-chip"><span class="ti">🕸️</span>Knowledge Graphs</span><span class="tech-chip"><span class="ti">🤝</span>AG2</span><span class="tech-chip"><span class="ti">🔮</span>LangGraph</span><span class="tech-chip"><span class="ti">📐</span>SPARQL</span><span class="tech-chip"><span class="ti">🧬</span>Vector Embeddings</span><span class="tech-chip"><span class="ti">💬</span>NLTK</span>
+        <span class="tech-chip"><span class="ti">🤖</span>LangChain</span><span class="tech-chip"><span class="ti">🧠</span>PyTorch</span><span class="tech-chip"><span class="ti">🌊</span>TensorFlow</span><span class="tech-chip"><span class="ti">🚀</span>XGBoost</span><span class="tech-chip"><span class="ti">🔬</span>Scikit-learn</span><span class="tech-chip"><span class="ti">👁️</span>OpenCV</span><span class="tech-chip"><span class="ti">🔗</span>HuggingFace</span><span class="tech-chip"><span class="ti">📡</span>RAG</span><span class="tech-chip"><span class="ti">🕸️</span>Knowledge Graphs</span><span class="tech-chip"><span class="ti">🤝</span>AG2</span><span class="tech-chip"><span class="ti">🔮</span>LangGraph</span><span class="tech-chip"><span class="ti">📐</span>SPARQL</span><span class="tech-chip"><span class="ti">🧬</span>Vector Embeddings</span><span class="tech-chip"><span class="ti">💬</span>NLTK</span>
+        <span class="tech-chip"><span class="ti">🤖</span>LangChain</span><span class="tech-chip"><span class="ti">🧠</span>PyTorch</span><span class="tech-chip"><span class="ti">🌊</span>TensorFlow</span><span class="tech-chip"><span class="ti">🚀</span>XGBoost</span><span class="tech-chip"><span class="ti">🔬</span>Scikit-learn</span><span class="tech-chip"><span class="ti">👁️</span>OpenCV</span><span class="tech-chip"><span class="ti">🔗</span>HuggingFace</span><span class="tech-chip"><span class="ti">📡</span>RAG</span><span class="tech-chip"><span class="ti">🕸️</span>Knowledge Graphs</span><span class="tech-chip"><span class="ti">🤝</span>AG2</span><span class="tech-chip"><span class="ti">🔮</span>LangGraph</span><span class="tech-chip"><span class="ti">📐</span>SPARQL</span><span class="tech-chip"><span class="ti">🧬</span>Vector Embeddings</span><span class="tech-chip"><span class="ti">💬</span>NLTK</span>
+      </div>
+    </div>
   </div>
-  <div class="ticker-wrap reveal reveal-delay-4" style="margin-top:1rem">
+  <div class="ticker-wrap" style="margin-top:1rem">
     <div class="ticker-label">Data Engineering & Cloud</div>
-    <div class="ticker-track"><div class="ticker-inner" id="t3"></div></div>
+    <div class="ticker-track">
+      <div class="ticker-inner">
+        <span class="tech-chip"><span class="ti">🌬️</span>Apache Airflow</span><span class="tech-chip"><span class="ti">⚡</span>Apache Spark</span><span class="tech-chip"><span class="ti">🧱</span>Databricks</span><span class="tech-chip"><span class="ti">🌊</span>Apache Flink</span><span class="tech-chip"><span class="ti">🏔️</span>Apache Hudi</span><span class="tech-chip"><span class="ti">☁️</span>AWS</span><span class="tech-chip"><span class="ti">🔵</span>Azure</span><span class="tech-chip"><span class="ti">🌥️</span>GCP</span><span class="tech-chip"><span class="ti">🐳</span>Docker</span><span class="tech-chip"><span class="ti">📈</span>Tableau</span><span class="tech-chip"><span class="ti">🔄</span>CI/CD</span><span class="tech-chip"><span class="ti">🏗️</span>Hadoop</span>
+        <span class="tech-chip"><span class="ti">🌬️</span>Apache Airflow</span><span class="tech-chip"><span class="ti">⚡</span>Apache Spark</span><span class="tech-chip"><span class="ti">🧱</span>Databricks</span><span class="tech-chip"><span class="ti">🌊</span>Apache Flink</span><span class="tech-chip"><span class="ti">🏔️</span>Apache Hudi</span><span class="tech-chip"><span class="ti">☁️</span>AWS</span><span class="tech-chip"><span class="ti">🔵</span>Azure</span><span class="tech-chip"><span class="ti">🌥️</span>GCP</span><span class="tech-chip"><span class="ti">🐳</span>Docker</span><span class="tech-chip"><span class="ti">📈</span>Tableau</span><span class="tech-chip"><span class="ti">🔄</span>CI/CD</span><span class="tech-chip"><span class="ti">🏗️</span>Hadoop</span>
+        <span class="tech-chip"><span class="ti">🌬️</span>Apache Airflow</span><span class="tech-chip"><span class="ti">⚡</span>Apache Spark</span><span class="tech-chip"><span class="ti">🧱</span>Databricks</span><span class="tech-chip"><span class="ti">🌊</span>Apache Flink</span><span class="tech-chip"><span class="ti">🏔️</span>Apache Hudi</span><span class="tech-chip"><span class="ti">☁️</span>AWS</span><span class="tech-chip"><span class="ti">🔵</span>Azure</span><span class="tech-chip"><span class="ti">🌥️</span>GCP</span><span class="tech-chip"><span class="ti">🐳</span>Docker</span><span class="tech-chip"><span class="ti">📈</span>Tableau</span><span class="tech-chip"><span class="ti">🔄</span>CI/CD</span><span class="tech-chip"><span class="ti">🏗️</span>Hadoop</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -634,13 +687,8 @@
         </div>
       </div>
       <div class="personal-right reveal reveal-delay-2">
-        <div class="pers-photo">
-          <div class="pers-photo-icon">📸</div>
-          <div class="pers-photo-label">// drop_a_photo_here.jpg</div>
-        </div>
-        <div class="pers-photo">
-          <div class="pers-photo-icon">📸</div>
-          <div class="pers-photo-label">// another_one_here.jpg</div>
+        <div class="pers-photo" style="padding:0;overflow:hidden;flex:1;min-height:320px;">
+          <img src="football-2.jpg" alt="Football" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div class="personal-quote">
           <p>"The best ML model is the one that ships. The second best is one with good vibes."</p>
@@ -708,9 +756,9 @@
       <div class="contact-left reveal reveal-delay-1">
         <p>Actively looking for full-time Data Science and ML Engineering roles. Got an interesting problem, a cool team, or a half-baked idea that needs a data person? I'm all ears.</p>
         <div class="contact-social">
-          <a href="/cdn-cgi/l/email-protection#8be6f9e5eae2f8e3eae7cbece6eae2e7a5e8e4e6" class="social-link">
+          <a href="mailto:mrnaishal@gmail.com" class="social-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <div><div class="sl-label">Email</div><div class="sl-value"><span class="__cf_email__" data-cfemail="1c716e727d756f747d705c7b717d7570327f7371">[email&#160;protected]</span></div></div>
+            <div><div class="sl-label">Email</div><div class="sl-value">mrnaishal@gmail.com</div></div>
           </a>
           <a href="https://www.linkedin.com/in/naishal-shah-94b005181/" target="_blank" class="social-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
@@ -745,10 +793,11 @@
           <label for="cf-message">Message</label>
           <textarea id="cf-message" placeholder="Tell me about it..."></textarea>
         </div>
-        <button class="form-submit" onclick="handleContact()">
+        <button class="form-submit" id="send-btn" onclick="handleContact()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Send It
+          <span id="send-label">Send It</span>
         </button>
+        <p id="form-status" style="margin-top:.8rem;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;display:none;"></p>
       </div>
     </div>
   </div>
@@ -801,95 +850,73 @@
   draw();
 })();
 
-// ── TICKER ─────────────────────────────────────────────
-(function() {
-  var data = {
-    t1: [
-      {icon:'🐍',label:'Python'},{icon:'🗄️',label:'SQL'},{icon:'⚡',label:'Scala'},
-      {icon:'🐼',label:'Pandas'},{icon:'🔢',label:'NumPy'},{icon:'✨',label:'PySpark'},
-      {icon:'📊',label:'Matplotlib'},{icon:'🐘',label:'PostgreSQL'},{icon:'❄️',label:'Snowflake'},
-      {icon:'🗃️',label:'Hive'},{icon:'📝',label:'Jupyter'},{icon:'🔧',label:'Git'}
-    ],
-    t2: [
-      {icon:'🤖',label:'LangChain'},{icon:'🧠',label:'PyTorch'},{icon:'🌊',label:'TensorFlow'},
-      {icon:'🚀',label:'XGBoost'},{icon:'🔬',label:'Scikit-learn'},{icon:'👁️',label:'OpenCV'},
-      {icon:'🔗',label:'HuggingFace'},{icon:'📡',label:'RAG'},{icon:'🕸️',label:'Knowledge Graphs'},
-      {icon:'🤝',label:'AG2'},{icon:'🔮',label:'LangGraph'},{icon:'📐',label:'SPARQL'},
-      {icon:'🧬',label:'Vector Embeddings'},{icon:'💬',label:'NLTK'}
-    ],
-    t3: [
-      {icon:'🌬️',label:'Apache Airflow'},{icon:'⚡',label:'Apache Spark'},{icon:'🧱',label:'Databricks'},
-      {icon:'🌊',label:'Apache Flink'},{icon:'🏔️',label:'Apache Hudi'},{icon:'☁️',label:'AWS'},
-      {icon:'🔵',label:'Azure'},{icon:'🌥️',label:'GCP'},{icon:'🐳',label:'Docker'},
-      {icon:'📈',label:'Tableau'},{icon:'🔄',label:'CI/CD'},{icon:'🏗️',label:'Hadoop'}
-    ]
-  };
-
-  function build(id, arr) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var all = arr.concat(arr); // duplicate for seamless loop
-    el.innerHTML = all.map(function(d) {
-      return '<span class="tech-chip"><span class="ti">' + d.icon + '</span>' + d.label + '</span>';
-    }).join('');
-  }
-
-  build('t1', data.t1);
-  build('t2', data.t2);
-  build('t3', data.t3);
-})();
-
-// ── COUNTERS ────────────────────────────────────────────
-(function() {
-  var counters = document.querySelectorAll('[data-count]');
-  function animateCounter(el) {
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    var start = null;
-    var duration = 1400;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      el.textContent = Math.round(p * target) + '+';
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  // Run counters after a short delay so they're visible
-  setTimeout(function() {
-    for (var i = 0; i < counters.length; i++) {
-      animateCounter(counters[i]);
-    }
-  }, 400);
-})();
-
-// ── EXPERIENCE TABS ─────────────────────────────────────
-(function() {
-  var tabs = document.querySelectorAll('.exp-tab');
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener('click', function() {
-      var allTabs = document.querySelectorAll('.exp-tab');
-      var allPanels = document.querySelectorAll('.exp-panel');
-      for (var j = 0; j < allTabs.length; j++) allTabs[j].classList.remove('active');
-      for (var k = 0; k < allPanels.length; k++) allPanels[k].classList.remove('active');
-      this.classList.add('active');
-      var panelId = 'panel-' + this.getAttribute('data-panel');
-      var panel = document.getElementById(panelId);
-      if (panel) panel.classList.add('active');
-    });
-  }
-})();
-
 // ── CONTACT FORM ────────────────────────────────────────
-function handleContact() {
+window.handleContact = function() {
   var name    = document.getElementById('cf-name').value.trim();
   var email   = document.getElementById('cf-email').value.trim();
   var subject = document.getElementById('cf-subject').value.trim();
   var message = document.getElementById('cf-message').value.trim();
-  if (!name || !email || !message) { alert('Fill in the required fields first!'); return; }
-  var sub = subject || ('Hey Naishal — ' + name);
-  var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
-  window.location.href = 'mailto:mrnaishal@gmail.com?subject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent(body);
-}
+  var status  = document.getElementById('form-status');
+  var btn     = document.getElementById('send-btn');
+  var label   = document.getElementById('send-label');
+
+  if (!name || !email || !message) {
+    status.style.display = 'block';
+    status.style.color = '#ff6a6a';
+    status.textContent = '✗ Please fill in name, email and message.';
+    return;
+  }
+
+  var key = '7083e668-562f-4b67-8992-4087e17e188f';
+
+  // If no real key yet, fall back to mailto
+  if (key === 'YOUR_WEB3FORMS_KEY') {
+    var sub = subject || 'Portfolio Contact — ' + name;
+    var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+    window.location.href = 'mailto:mrnaishal@gmail.com?subject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent(body);
+    return;
+  }
+
+  btn.disabled = true;
+  label.textContent = 'Sending...';
+  status.style.display = 'none';
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({
+      access_key: key,
+      name: name,
+      email: email,
+      subject: subject || 'Portfolio Contact — ' + name,
+      message: message,
+      redirect: false
+    })
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.success) {
+      label.textContent = 'Send It';
+      btn.disabled = false;
+      status.style.display = 'block';
+      status.style.color = '#ff6a1a';
+      status.textContent = '✓ Message sent! I\'ll get back to you soon.';
+      document.getElementById('cf-name').value = '';
+      document.getElementById('cf-email').value = '';
+      document.getElementById('cf-subject').value = '';
+      document.getElementById('cf-message').value = '';
+    } else {
+      throw new Error('failed');
+    }
+  })
+  .catch(function() {
+    label.textContent = 'Send It';
+    btn.disabled = false;
+    status.style.display = 'block';
+    status.style.color = '#ff6a6a';
+    status.textContent = '✗ Something went wrong. Email me at mrnaishal@gmail.com';
+  });
+};
 
 // ── NAV SCROLL ──────────────────────────────────────────
 window.addEventListener('scroll', function() {
